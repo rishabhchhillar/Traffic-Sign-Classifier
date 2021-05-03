@@ -1,10 +1,10 @@
 # Traffic Sign Recognition Program
 
-##Overview
+Overview
 ---
 In this project, I've used deep neural networks and convolutional neural networks to classify traffic signs. I trained and validated a model so it can classify traffic sign images using the [German Traffic Sign Dataset](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset). After the model was trained, I tried out the model on images of German traffic signs found on the web.
 
-##The Project
+The Project
 ---
 The goals / steps of this project are the following:
 * Load the data set
@@ -43,7 +43,7 @@ Here is an exploratory visualization of the data set. It is a bar chart showing 
 
 ### Design and Test a Model Architecture
 
-For pre-processing, I first converted the images to grayscale and then normalized them. Here is an example of both:
+For pre-processing, I first converted the images to grayscale and then normalized them. Here are a few examples of both:
 
 ![alt text][im04]
 ![alt text][im05]
@@ -88,8 +88,8 @@ My final model results were:
 
 Here are six German traffic signs that I found on the web:
 
-![alt text][im6] ![alt text][im7] ![alt text][im8] 
-![alt text][im9] ![alt text][im10] ![alt text][im11]
+![alt text][im06] ![alt text][im07] ![alt text][im08] 
+![alt text][im09] ![alt text][im10] ![alt text][im11]
 
 Here are the results of the prediction:
 
