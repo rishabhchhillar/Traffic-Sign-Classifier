@@ -1,10 +1,10 @@
 # Traffic Sign Recognition Program
 
-Overview
+##Overview
 ---
 In this project, I've used deep neural networks and convolutional neural networks to classify traffic signs. I trained and validated a model so it can classify traffic sign images using the [German Traffic Sign Dataset](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset). After the model was trained, I tried out the model on images of German traffic signs found on the web.
 
-The Project
+##The Project
 ---
 The goals / steps of this project are the following:
 * Load the data set
@@ -32,7 +32,7 @@ The goals / steps of this project are the following:
 * The size of training set is 34799.
 * The size of the validation set is 4410.
 * The size of test set is 12630.
-* The shape of a traffic sign image is 32x32x1.
+* The shape of a traffic sign image is 32x32x3.
 * The number of unique classes/labels in the data set is 43.
 
 Here is an exploratory visualization of the data set. It is a bar chart showing the number of images in training, validation, and test sets.
@@ -43,7 +43,10 @@ Here is an exploratory visualization of the data set. It is a bar chart showing 
 
 ### Design and Test a Model Architecture
 
-For pre-processing, I first converted the images to grayscale and then normalized them. Here are a few examples of both:
+For pre-processing, I first converted the images to grayscale, as RGB images contain a lot more information than grayscale images which can add unnecessary complexity and take up more space in memory. As grayscale images are the same images having 1 color channel instead of 3, they take up less space and make the pipeline faster while retaining the useful information from the original images.
+After converting the images to grayscale, I normalized the images by subtracting the mean and dividing by the standard deviation. Subtracting the mean makes all the images zero-centered, and scaling by the standard deviation makes the images of equal height and width from the center in all dimensions.
+
+ Here is an example of both:
 
 ![alt text][im04]
 ![alt text][im05]
@@ -69,6 +72,7 @@ I implemented the LeNet model architecture and added a few more layers. My final
 | Dropout		| keep_prob=0.7						|
 | Fully connected 	| input – 84, output – 43 					| 
 
+
 To train the model, I used an the following hyperparameters:
 * Epoch = 30
 *Batch size = 128
@@ -79,6 +83,11 @@ To train the model, I used an the following hyperparameters:
 *Sigma - 0.1
 *Dropout keep probability - 0.5
 
+I decided to train the model for 30 epochs because it let the model converge properly without overfitting and training for lesser epochs also resulted in a lower test set accuracy. 
+I set the learning rate at 0.001 as it allowed for proper learning without converging at a local minima. 
+For the optimizer I chose Adam as it combines the best properties of the AdaGrad and RMSProp.
+After testing various dropout probabilities, I found that 0.5 worked best for this model and helped in preventing overfitting.
+
 My final model results were:
 * training set accuracy of 99.8%.
 * validation set accuracy of 95.2%.
@@ -88,8 +97,14 @@ My final model results were:
 
 Here are six German traffic signs that I found on the web:
 
-![alt text][im06] ![alt text][im07] ![alt text][im08] 
-![alt text][im09] ![alt text][im10] ![alt text][im11]
+![alt text][im6] 
+![alt text][im7] 
+![alt text][im8] 
+![alt text][im9] 
+![alt text][im10] 
+![alt text][im11]
+
+I used these images as they had varying lighting and were clicked at different angles, while still having the traffic signs in proper view.
 
 Here are the results of the prediction:
 
@@ -125,3 +140,4 @@ TopKV2(values=array([[  1.00000000e+00,   0.00000000e+00,   0.00000000e+00,
        [18,  0,  1,  2,  3]], dtype=int32))
 
 The model predicted every image correctly with 100% probability but the 4th, for which it predicted keep right as the most probable output and then the correct one (No vehicles) as the second most probable. 
+
