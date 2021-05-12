@@ -97,10 +97,10 @@ My final model results were:
 
 Here are six German traffic signs that I found on the web:
 
-![alt text][im6] 
-![alt text][im7] 
-![alt text][im8] 
-![alt text][im9] 
+![alt text][im06] 
+![alt text][im07] 
+![alt text][im08] 
+![alt text][im09] 
 ![alt text][im10] 
 ![alt text][im11]
 
