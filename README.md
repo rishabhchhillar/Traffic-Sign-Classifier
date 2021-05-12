@@ -75,13 +75,13 @@ I implemented the LeNet model architecture and added a few more layers. My final
 
 To train the model, I used an the following hyperparameters:
 * Epoch = 30
-*Batch size = 128
-*Learning rate = 0.001
-*Optimizer = Adam
-*Loss function = Cross entropy
-*Mu - 0
-*Sigma - 0.1
-*Dropout keep probability - 0.5
+* Batch size = 128
+* Learning rate = 0.001
+* Optimizer = Adam
+* Loss function = Cross entropy
+* Mu - 0
+* Sigma - 0.1
+* Dropout keep probability - 0.5
 
 I decided to train the model for 30 epochs because it let the model converge properly without overfitting and training for lesser epochs also resulted in a lower test set accuracy. 
 I set the learning rate at 0.001 as it allowed for proper learning without converging at a local minima. 
